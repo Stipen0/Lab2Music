@@ -17,7 +17,9 @@
 body {
     font-family: Arial, sans-serif;
     text-align: center;
-    background-color: #f5f5f5;
+    background-image: linear-gradient(to bottom, black, gray , white);
+    background-attachment:fixed;
+    background-size: auto;
     padding: 20px;
 }
 
@@ -34,7 +36,7 @@ h1 {
 }
 
 audio {
-    width: 100%;
+    width: 70%;
 }
 
 #playlist {
@@ -46,8 +48,9 @@ audio {
     cursor: pointer;
     padding: 10px;
     background-color: #eee;
+    border-radius: 10px;
     margin: 5px 0;
-    transition: background-color 0.2s ease-in-out;
+    transition: background-color 0.5s ease-in-out;
 }
 
 #playlist li:hover {
@@ -94,26 +97,26 @@ audio {
     </div>
     <form action="/search" method="get">
         <div class="input-group ">
-            <input type="search" name="title" class="form-control" placeholder="Search for a song" required>
+            <input type="search" name="title" class="form-control" style="font-family: 'Courier New', Courier, monospace;" placeholder="Search for a song" required>
             <button type="submit" class="btn btn-primary">Search</button>
         </div>
     </form>
 
-    <h1>Music Player</h1>
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    <p style="font-size: 60px;color:white;font-family:fantasy;"><span style="background-color: #FF9000; border-radius:10px;color:black">Music</span>Player</p>
+    <button style="font-family: 'Courier New', Courier, monospace;" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
         My Playlist
     </button>
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#uploadSong">
+    <button style="font-family: 'Courier New', Courier, monospace;" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#uploadSong">
         Upload Song
     </button>
 
-    <h1 id="currentTrackTitle"></h1>
+    <h1 style="font-family: 'Courier New', Courier, monospace; color:white" id="currentTrackTitle"></h1>
     <audio id="audio" controls autoplay type="audio/mpeg"></audio>
 
     <ul class="list-unstyled mt-3" id="playlist">
         <?php foreach ($music as $mus) : ?>
             <li class="align-items-center" data-src="/<?= $mus['file_path'] ?>">
-                <a href="#" id="music" class="play-link" data-music-id="<?= $mus['id'] ?>">
+                <a style="font-family: 'Courier New', Courier, monospace;" href="#" id="music" class="play-link" data-music-id="<?= $mus['id'] ?>">
                     <?= $mus['title'] ?>
                 </a>
                 <button class="open-modal btn btn-primary" data-target="#mymodal" data-toggle="modal" data-music-id="<?= $mus['id'] ?>">
